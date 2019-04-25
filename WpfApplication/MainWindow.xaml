@@ -13,12 +13,12 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <Label Content="Поле для ввода" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Button Content="Показать" Click="Button_Click"/>
-            <TextBox  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="" TextChanged="TextBox_TextChanged"/>
+            <Button Name="Button" Content="Показать результат"/>
+            <TextBox Name="TextInput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text=""/>
         </StackPanel>
         <StackPanel Grid.Column="1">
             <Label Grid.Column="1" Content="Окно для вывода результата" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Label/>
+            <TextBox Name="TextOutput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="" IsReadOnly="True"/>
             
         </StackPanel>
        

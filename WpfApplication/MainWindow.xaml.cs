@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CoordinateSystem;
 
 namespace WpfApplication
 {
@@ -23,17 +24,18 @@ namespace WpfApplication
         public MainWindow()
         {
             InitializeComponent();
+            Button.Click += Button_Click1;
 
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Button_Click1(object sender, RoutedEventArgs e)
         {
+            var parser = new PointParser();
+            string input = TextInput.Text;
+            TextOutput.Text = parser.OutputPoint(parser.InputPoint(input));
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

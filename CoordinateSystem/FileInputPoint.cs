@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CoordinateSystem
 {
-    class FileInputPoint : IInputPoint, IDisposable
+    public class FileInputPoint : IDisposable
     {
         private StreamReader stream;
         
@@ -19,18 +19,11 @@ namespace CoordinateSystem
 
         public Point InputPoint()
         {
-            Point point;
+            var parser = new PointParser();
             string input;
-            string[] numbersLine;
-            double x;
-            double y;
             if ((input = stream.ReadLine()) != null)
             {
-                numbersLine = input.Split(',');
-                x = double.Parse(numbersLine[0], CultureInfo.InvariantCulture);
-                y = double.Parse(numbersLine[1], CultureInfo.InvariantCulture);
-                point = new Point(x, y);
-                return point;
+                return parser.InputPoint(input);
             }
             return null;
         }

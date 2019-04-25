@@ -11,7 +11,7 @@ namespace CoordinateSystem
         static void Main(string[] args)
         {
             ConsoleKeyInfo keyInfo;
-            var console = new ConsoleDisplay();
+            var parser = new PointParser();
             FileInputPoint inputFromFile;
             Point point;
             Console.WriteLine("Press key 'X' to quit");
@@ -21,9 +21,9 @@ namespace CoordinateSystem
                 {
                     keyInfo = Console.ReadKey(true);
                     if (keyInfo.Key == ConsoleKey.X) break;
-                    point = console.InputPoint();
+                    point = parser.InputPoint(Console.ReadLine());
                     if (point == null) break;
-                    console.OutputPoint(point);
+                    Console.WriteLine(parser.OutputPoint(point));
                 }
             }
             else
@@ -34,7 +34,7 @@ namespace CoordinateSystem
                     {
                         point = inputFromFile.InputPoint();
                         if (point == null) break;
-                        console.OutputPoint(point);
+                        Console.WriteLine(parser.OutputPoint(point));
                     }
                 }
             }
