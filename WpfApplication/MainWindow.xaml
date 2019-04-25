@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="Поле для ввода" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button Content="Показать" Click="Button_Click"/>
+            <TextBox  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="" TextChanged="TextBox_TextChanged"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Label Grid.Column="1" Content="Окно для вывода результата" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label/>
+            
+        </StackPanel>
+       
+
     </Grid>
 </Window>

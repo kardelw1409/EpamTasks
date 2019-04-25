@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoordinateSystem\CoordinateSystem.csproj">
+      <Project>{0cd3858e-f8a6-4b72-aa4a-dd1e70223d38}</Project>
+      <Name>CoordinateSystem</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

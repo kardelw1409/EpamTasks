@@ -11,24 +11,33 @@ namespace CoordinateSystem
         static void Main(string[] args)
         {
             ConsoleKeyInfo keyInfo;
-            IOutputPoint console = new ConsoleDisplay();
+            var console = new ConsoleDisplay();
             FileInputPoint inputFromFile;
             Point point;
             Console.WriteLine("Press key 'X' to quit");
-            using (inputFromFile = new FileInputPoint(args[0]))
+            if (args.Length == 0)
             {
                 while (true)
                 {
                     keyInfo = Console.ReadKey(true);
-                    // Exit if the user pressed the 'X' key.
                     if (keyInfo.Key == ConsoleKey.X) break;
-                    point = inputFromFile.InputPoint();
+                    point = console.InputPoint();
                     if (point == null) break;
                     console.OutputPoint(point);
                 }
-
             }
-            Console.WriteLine("Finish!");
+            else
+            {
+                using (inputFromFile = new FileInputPoint(args[0]))
+                {
+                    while (true)
+                    {
+                        point = inputFromFile.InputPoint();
+                        if (point == null) break;
+                        console.OutputPoint(point);
+                    }
+                }
+            }
             Console.ReadKey();
         }
     }
