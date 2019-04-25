@@ -13,7 +13,7 @@ namespace WpfApplication
         public MainWindow()
         {
             InitializeComponent();
-            Button.Click += Button_Click1;
+            Button.Click += Button_Click;
             ButtonFile.Click += ButtonFile_Click;    
         }
 
@@ -34,11 +34,18 @@ namespace WpfApplication
             }
         }
 
-        private void Button_Click1(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                TextOutput.Text = ParseStringInFormat(TextInput.Text);
+                if (TextInput.Text.Length == 0)
+                {
+                    MessageBox.Show("Пустое поле");
+                }
+                else
+                {
+                    TextOutput.Text = ParseStringInFormat(TextInput.Text);
+                }
             }
             catch (Exception)
             {
