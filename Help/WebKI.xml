@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="App class">
+    <HelpKINode Title="App Class" Url="html/7ae05bfd-af3a-500a-f82f-e72eb53101f7.htm" />
+    <HelpKINode Title="constructor" Url="html/eb1673a7-0c5a-53b1-a458-7c548e9b7773.htm" />
+    <HelpKINode Title="events" Url="html/fd71098a-0487-7a62-b94a-4cbcbe0f9048.htm" />
+    <HelpKINode Title="methods" Url="html/2db3f18d-4f2d-a86b-050a-d4823400a756.htm" />
+    <HelpKINode Title="properties" Url="html/1d6f0d74-de5a-5f07-3ff2-9f0a18df4beb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="App.App constructor" Url="html/eb1673a7-0c5a-53b1-a458-7c548e9b7773.htm" />
+  <HelpKINode Title="App.InitializeComponent method" Url="html/dc0663e0-a048-eece-4986-66cb64832f01.htm" />
+  <HelpKINode Title="App.Main method" Url="html/e8f9b565-735b-f06b-ef7a-598032a718d0.htm" />
+  <HelpKINode Title="ButtonFile_Click method" Url="html/a55f290f-7b3b-4bda-7bdd-9fee96b70fcb.htm" />
+  <HelpKINode Title="Button_Click method" Url="html/63adee77-39e0-4909-6efa-0e80ce57f64a.htm" />
+  <HelpKINode Title="InitializeComponent method">
+    <HelpKINode Title="App.InitializeComponent Method " Url="html/dc0663e0-a048-eece-4986-66cb64832f01.htm" />
+    <HelpKINode Title="MainWindow.InitializeComponent Method " Url="html/d390430c-77b6-d6cf-48fc-96d90ba524ed.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Main method" Url="html/e8f9b565-735b-f06b-ef7a-598032a718d0.htm" />
+  <HelpKINode Title="MainWindow class">
+    <HelpKINode Title="MainWindow Class" Url="html/57269a12-0e06-d8c4-31e4-79829fe31b20.htm" />
+    <HelpKINode Title="constructor" Url="html/529a1b94-2122-ec6a-8071-544cf88e10de.htm" />
+    <HelpKINode Title="events" Url="html/812fd82d-99d2-6233-0ab2-8b8e402dfd32.htm" />
+    <HelpKINode Title="fields" Url="html/7fa9d4cc-52de-c911-ce00-a74350b465da.htm" />
+    <HelpKINode Title="methods" Url="html/d88debf1-7dcd-68d6-c23b-2b637e037929.htm" />
+    <HelpKINode Title="properties" Url="html/5688df38-a1cc-3809-ee6e-54eb1ce33e61.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindow.ButtonFile_Click method" Url="html/a55f290f-7b3b-4bda-7bdd-9fee96b70fcb.htm" />
+  <HelpKINode Title="MainWindow.Button_Click method" Url="html/63adee77-39e0-4909-6efa-0e80ce57f64a.htm" />
+  <HelpKINode Title="MainWindow.InitializeComponent method" Url="html/d390430c-77b6-d6cf-48fc-96d90ba524ed.htm" />
+  <HelpKINode Title="MainWindow.MainWindow constructor" Url="html/529a1b94-2122-ec6a-8071-544cf88e10de.htm" />
+  <HelpKINode Title="MainWindow.ParseStringFileInFormat method" Url="html/80c26e75-9180-f23b-c02a-cb992c1cc9f6.htm" />
+  <HelpKINode Title="MainWindow.ParseStringInFormat method" Url="html/c89f3dd5-e3ad-fc63-6868-df0704a5e01c.htm" />
+  <HelpKINode Title="MainWindow._contentLoaded field" Url="html/27506c37-5240-cdfb-5bfc-5c9c7fdb3a41.htm" />
+  <HelpKINode Title="ParseStringFileInFormat method" Url="html/80c26e75-9180-f23b-c02a-cb992c1cc9f6.htm" />
+  <HelpKINode Title="ParseStringInFormat method" Url="html/c89f3dd5-e3ad-fc63-6868-df0704a5e01c.htm" />
+  <HelpKINode Title="WpfApplication namespace" Url="html/8a269874-7ec3-65de-af78-48edf3a802e3.htm" />
+  <HelpKINode Title="WpfApplication.App class" Url="html/7ae05bfd-af3a-500a-f82f-e72eb53101f7.htm" />
+  <HelpKINode Title="WpfApplication.MainWindow class" Url="html/57269a12-0e06-d8c4-31e4-79829fe31b20.htm" />
+  <HelpKINode Title="_contentLoaded field" Url="html/27506c37-5240-cdfb-5bfc-5c9c7fdb3a41.htm" />
+</HelpKI>

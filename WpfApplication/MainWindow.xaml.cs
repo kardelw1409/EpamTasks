@@ -10,13 +10,20 @@ namespace WpfApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Метод, в котором инициализируются компоненты главного окна,
+        /// а также "вешаются" обработчики событий для кнопок главного окна.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             Button.Click += Button_Click;
             ButtonFile.Click += ButtonFile_Click;    
         }
-
+        /// <summary>
+        /// Метод, открывающий диалоговое окно для выбора txt файла с координатоми,
+        /// далее данные берутся из файла, форматируются к нужному виду и показываются в окне для вывода результата.
+        /// </summary>
         private void ButtonFile_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
@@ -33,7 +40,10 @@ namespace WpfApplication
                 MessageBox.Show("Ошибка в программе");
             }
         }
-
+        /// <summary>
+        /// Метод, который берет координаты из поля для ввода, форматирует координаты и
+        /// показывает их в окне для вывода результата. 
+        /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -52,7 +62,10 @@ namespace WpfApplication
                 MessageBox.Show("Ошибка в программе");
             }
         }
-
+        /// <summary>
+        /// Метод находит по полному пути файл, забирает из него коорлинаты, форматирует
+        /// и возвращает полностью готовую отформатированную строку с координатоми.
+        /// </summary>
         private string ParseStringFileInFormat(string path)
         {
             var parser = new PointParser();
@@ -70,7 +83,10 @@ namespace WpfApplication
             }
             return outputString;
         }
-
+        /// <summary>
+        /// Метод разбивает строку по NewLine (начало новой строки), каждая координата
+        /// форматируется и результат выводится в окно для вывода.
+        /// </summary>
         private string ParseStringInFormat(string input)
         {
             string outputString = "";
