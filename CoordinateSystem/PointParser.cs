@@ -13,7 +13,7 @@ namespace CoordinateSystem
         {
             Point point;
             string[] input = inputString.Split(',');
-            if (input.Length != 2) { return null; }
+            if (input.Length != 2) { throw new Exception("Неверное число параметров"); }
             double x = double.Parse(input[0], CultureInfo.InvariantCulture);
             double y = double.Parse(input[1], CultureInfo.InvariantCulture);
             point = new Point(x, y);
@@ -22,15 +22,7 @@ namespace CoordinateSystem
 
         public string OutputPoint(Point point)
         {
-            if (point == null)
-            {
-                return string.Format("Неверно задана точка");
-            }
-            else
-            {
-                return string.Format($"X: {point.X} Y: {point.Y}");
-            }
-
+            return string.Format($"X: {point.X} Y: {point.Y}");
         }
     }
 }

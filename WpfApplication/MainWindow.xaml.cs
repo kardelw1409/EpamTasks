@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CoordinateSystem;
 
 namespace WpfApplication
@@ -25,15 +14,69 @@ namespace WpfApplication
         {
             InitializeComponent();
             Button.Click += Button_Click1;
+            ButtonFile.Click += ButtonFile_Click;    
+        }
 
+        private void ButtonFile_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+            try
+            {
+                bool? result = openFileDlg.ShowDialog();
+                if (result == true)
+                {
+                    TextOutput.Text = ParseStringFileInFormat(openFileDlg.FileName);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка в программе");
+            }
         }
 
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
-            var parser = new PointParser();
-            string input = TextInput.Text;
-            TextOutput.Text = parser.OutputPoint(parser.InputPoint(input));
+            try
+            {
+                TextOutput.Text = ParseStringInFormat(TextInput.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка в программе");
+            }
+        }
 
+        private string ParseStringFileInFormat(string path)
+        {
+            var parser = new PointParser();
+            FileInputPoint fileInput;
+            CoordinateSystem.Point point;
+            string outputString = "";
+            using (fileInput = new FileInputPoint(path))
+            {
+                while (true)
+                {
+                    point = fileInput.InputPoint();
+                    if (point == null) break;
+                    outputString += parser.OutputPoint(point) + "\n";
+                }
+            }
+            return outputString;
+        }
+
+        private string ParseStringInFormat(string input)
+        {
+            string outputString = "";
+            var parser = new PointParser();
+            CoordinateSystem.Point point;
+            string[] strings = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            foreach (var count in strings)
+            {
+                point = parser.InputPoint(count);
+                if (point == null) break;
+                outputString += parser.OutputPoint(point) + "\n";
+            }
+            return outputString;
         }
 
 

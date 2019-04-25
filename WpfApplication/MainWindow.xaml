@@ -12,9 +12,18 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Label Content="Поле для ввода" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Button Name="Button" Content="Показать результат"/>
+            <TextBlock>
+                Пример демонстрирует типичный набор данных:
+                <LineBreak/> 23.8976,12.3218
+                <LineBreak/> 25.7639,11.9463
+                <LineBreak/> 24.8293,12.2134
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontWeight="Bold">
+                <Run Foreground="Blue">Поле для ввода</Run>
+            </TextBlock>
             <TextBox Name="TextInput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text=""/>
+            <Button Name="Button" Content="Показать результат"/>
+            <Button Name="ButtonFile" Content="Получить результат из файла"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
             <Label Grid.Column="1" Content="Окно для вывода результата" HorizontalAlignment="Center" VerticalAlignment="Top"/>
