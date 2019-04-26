@@ -5,32 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <TextBlock>
-                Пример демонстрирует типичный набор данных:
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" Background="LightGray" >
+            <TextBlock >
+                Example for input field:
                 <LineBreak/> 23.8976,12.3218
-                <LineBreak/> 25.7639,11.9463
-                <LineBreak/> 24.8293,12.2134
+                <!--<LineBreak/> 25.7639,11.9463
+                <LineBreak/> 24.8293,12.2134-->
             </TextBlock>
             <TextBlock HorizontalAlignment="Center" FontWeight="Bold">
-                <Run Foreground="Blue">Поле для ввода</Run>
+                <Run Foreground="Blue" FontSize="14">Input Field</Run>
             </TextBlock>
-            <TextBox Name="TextInput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text=""/>
-            <Button Name="Button" Content="Показать результат"/>
-            <Button Name="ButtonFile" Content="Получить результат из файла"/>
+            <ScrollViewer Height="133" VerticalScrollBarVisibility="Auto">
+                <TextBox Name="TextInput" AcceptsReturn="True" TextWrapping="Wrap"/>
+            </ScrollViewer>
+            <Button Name="Button" Content="Get Result" HorizontalAlignment="Center" Background="GreenYellow" Foreground="Black"/>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            <Label Grid.Column="1" Content="Окно для вывода результата" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBox Name="TextOutput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Text="" IsReadOnly="True"/>
-            
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="LightYellow">
+            <TextBlock HorizontalAlignment="Center" FontWeight="Bold">
+                <Run Foreground="Blue" FontSize="14">File Input</Run>
+            </TextBlock>
+            <TextBlock FontWeight="Thin" HorizontalAlignment="Center">
+                Select file with the coordinates
+                <!--<LineBreak/> 25.7639,11.9463
+                <LineBreak/> 24.8293,12.2134-->
+            </TextBlock>
+            <Button HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Center" x:Name="ButtonFile" Content="Select file" Background="GreenYellow" Foreground="Black" Height="30" Width="100"/>
         </StackPanel>
-       
-
+        <StackPanel Grid.Column="1" Grid.RowSpan="2">
+            <TextBlock HorizontalAlignment="Center" FontWeight="Bold">
+                <Run Foreground="Blue" FontSize="14">Output Field</Run>
+            </TextBlock>
+            <ScrollViewer Height="390" VerticalScrollBarVisibility="Auto">
+                <TextBox Name="TextOutput" FontSize="14" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </Window>

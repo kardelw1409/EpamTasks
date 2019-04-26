@@ -18,7 +18,7 @@ namespace WpfApplication
         {
             InitializeComponent();
             Button.Click += Button_Click;
-            ButtonFile.Click += ButtonFile_Click;    
+            ButtonFile.Click += ButtonFile_Click;
         }
         /// <summary>
         /// Метод, открывающий диалоговое окно для выбора txt файла с координатоми,
@@ -35,9 +35,17 @@ namespace WpfApplication
                     TextOutput.Text = ParseStringFileInFormat(openFileDlg.FileName);
                 }
             }
-            catch (Exception)
+            catch (FormatException fe)
             {
-                MessageBox.Show("Ошибка в программе");
+                MessageBox.Show(fe.Message);
+            }
+            catch (ArgumentException ae)
+            {
+                MessageBox.Show(ae.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         /// <summary>
@@ -50,16 +58,24 @@ namespace WpfApplication
             {
                 if (TextInput.Text.Length == 0)
                 {
-                    MessageBox.Show("Пустое поле");
+                    MessageBox.Show("Empty field");
                 }
                 else
                 {
                     TextOutput.Text = ParseStringInFormat(TextInput.Text);
                 }
             }
-            catch (Exception)
+            catch (FormatException fe)
             {
-                MessageBox.Show("Ошибка в программе");
+                MessageBox.Show(fe.Message);
+            }
+            catch (ArgumentException ae)
+            {
+                MessageBox.Show(ae.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         /// <summary>
@@ -69,17 +85,12 @@ namespace WpfApplication
         private string ParseStringFileInFormat(string path)
         {
             var parser = new PointCreator();
-            PointsFromFile fileInput;
-            CoordinateSystem.Point point;
+            var fileInput = new PointsFromFile();
             string outputString = "";
-            using (fileInput = new PointsFromFile(path))
+            var points = fileInput.GetListPoints(path);
+            foreach (var point in points)
             {
-                while (true)
-                {
-                    point = fileInput.GetListPoints();
-                    if (point == null) break;
-                    outputString += parser.OutputPoint(point) + "\n";
-                }
+                outputString += string.Format($"X: {point.X} Y: {point.Y}") + "\n";
             }
             return outputString;
         }
@@ -96,8 +107,7 @@ namespace WpfApplication
             foreach (var count in strings)
             {
                 point = parser.CreatePoint(count);
-                if (point == null) break;
-                outputString += parser.OutputPoint(point) + "\n";
+                outputString += string.Format($"X: {point.X} Y: {point.Y}") + "\n";
             }
             return outputString;
         }
