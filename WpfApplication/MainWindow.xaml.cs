@@ -68,15 +68,15 @@ namespace WpfApplication
         /// </summary>
         private string ParseStringFileInFormat(string path)
         {
-            var parser = new PointParser();
-            FileInputPoint fileInput;
+            var parser = new PointCreator();
+            PointsFromFile fileInput;
             CoordinateSystem.Point point;
             string outputString = "";
-            using (fileInput = new FileInputPoint(path))
+            using (fileInput = new PointsFromFile(path))
             {
                 while (true)
                 {
-                    point = fileInput.InputPoint();
+                    point = fileInput.GetListPoints();
                     if (point == null) break;
                     outputString += parser.OutputPoint(point) + "\n";
                 }
@@ -90,12 +90,12 @@ namespace WpfApplication
         private string ParseStringInFormat(string input)
         {
             string outputString = "";
-            var parser = new PointParser();
+            var parser = new PointCreator();
             CoordinateSystem.Point point;
             string[] strings = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             foreach (var count in strings)
             {
-                point = parser.InputPoint(count);
+                point = parser.CreatePoint(count);
                 if (point == null) break;
                 outputString += parser.OutputPoint(point) + "\n";
             }

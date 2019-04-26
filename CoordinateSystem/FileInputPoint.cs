@@ -8,31 +8,33 @@ using System.Threading.Tasks;
 
 namespace CoordinateSystem
 {
-    public class FileInputPoint : IDisposable
+    public class PointsFromFile
     {
-        private StreamReader stream;
-        
-        public FileInputPoint(string path)
+        public List<Point> GetListPoints(string path)
         {
-            stream = new StreamReader(path);
-        }
-
-        public Point InputPoint()
-        {
-            var parser = new PointParser();
+            var creator = new PointCreator();
+            var list = new List<Point>();
             string input;
-            if ((input = stream.ReadLine()) != null)
+            try
             {
-                return parser.InputPoint(input);
+                using (var stream = new StreamReader(path))
+                {
+                    while ((input = stream.ReadLine()) != null)
+                    {
+                        list.Add(creator.CreatePoint(input));
+                    }
+                }
+
             }
-            return null;
+            catch (ArgumentException ae)
+            {
+                throw new ArgumentException("Invalid path", ae);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return list;
         }
-
-
-        public void Dispose()
-        {
-            stream.Dispose();
-        }
-
     }
 }
