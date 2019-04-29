@@ -22,18 +22,17 @@
                 <!--<LineBreak/> 25.7639,11.9463
                 <LineBreak/> 24.8293,12.2134-->
             </TextBlock>
-            <TextBlock HorizontalAlignment="Center" FontWeight="Bold">
+            <!--<TextBlock HorizontalAlignment="Center" FontWeight="Bold">
                 <Run Foreground="Blue" FontSize="14">Input Field</Run>
-            </TextBlock>
-            <ScrollViewer Height="133" VerticalScrollBarVisibility="Auto">
-                <TextBox Name="TextInput" AcceptsReturn="True" TextWrapping="Wrap"/>
+            </TextBlock>-->
+            <ScrollViewer Height="143" VerticalScrollBarVisibility="Auto">
+                <TextBox Name="TextInput" AcceptsReturn="True" TextWrapping="Wrap">
+                Please enter coordinates here...
+                </TextBox>
             </ScrollViewer>
-            <Button Name="Button" Content="Get Result" HorizontalAlignment="Center" Background="GreenYellow" Foreground="Black"/>
+            <Button Name="Button" Content="Get Result" HorizontalAlignment="Center" Background="GreenYellow" Foreground="Black" Height="30" Width="100"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Background="LightYellow">
-            <TextBlock HorizontalAlignment="Center" FontWeight="Bold">
-                <Run Foreground="Blue" FontSize="14">File Input</Run>
-            </TextBlock>
             <TextBlock FontWeight="Thin" HorizontalAlignment="Center">
                 Select file with the coordinates
                 <!--<LineBreak/> 25.7639,11.9463

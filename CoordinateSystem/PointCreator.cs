@@ -14,7 +14,7 @@ namespace CoordinateSystem
             double x, y;
             try
             {
-                string[] input = inputString.Split(',');
+                var input = inputString.Split(',');
                 if (input.Length != 2)
                 {
                     throw new FormatException();
@@ -30,7 +30,7 @@ namespace CoordinateSystem
             {
                 throw;
             }
-
+            //x и y должны быть объявлены за конструкцией try catch
             return new Point(x, y);
         }
     }

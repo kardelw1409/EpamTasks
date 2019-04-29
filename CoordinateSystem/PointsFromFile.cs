@@ -10,10 +10,10 @@ namespace CoordinateSystem
 {
     public class PointsFromFile
     {
-        public List<Point> GetListPoints(string path)
+        public List<Point> GetPointsList(string path)
         {
-            var creator = new PointCreator();
-            var list = new List<Point>();
+            var pointsCreator = new PointCreator();
+            var pointsList = new List<Point>();
             string input;
             try
             {
@@ -21,7 +21,7 @@ namespace CoordinateSystem
                 {
                     while ((input = stream.ReadLine()) != null)
                     {
-                        list.Add(creator.CreatePoint(input));
+                        pointsList.Add(pointsCreator.CreatePoint(input));
                     }
                 }
 
@@ -34,7 +34,7 @@ namespace CoordinateSystem
             {
                 throw;
             }
-            return list;
+            return pointsList;
         }
     }
 }

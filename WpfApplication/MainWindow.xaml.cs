@@ -87,7 +87,7 @@ namespace WpfApplication
             var parser = new PointCreator();
             var fileInput = new PointsFromFile();
             string outputString = "";
-            var points = fileInput.GetListPoints(path);
+            var points = fileInput.GetPointsList(path);
             foreach (var point in points)
             {
                 outputString += string.Format($"X: {point.X} Y: {point.Y}") + "\n";
