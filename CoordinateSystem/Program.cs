@@ -10,45 +10,30 @@ namespace CoordinateSystem
     {
         static void Main(string[] args)
         {
-            var exit = false;
-            while (!exit)
-            {
-                try
-                {
-                    Console.WriteLine("1 Reading the coordinates from the console");
-                    Console.WriteLine("2 Reading the coordinates from the file");
-                    Console.WriteLine("3 Clear window");
-                    Console.WriteLine("4 Exit");
-                    var input = int.Parse(Console.ReadLine());
-                    Switch(input, ref exit);
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Enter number");
-                }
-            }
-        }
 
-        public static void Switch(int input, ref bool exit)
-        {
-            switch (input)
+            try
             {
-                case 1:
-                    ReadPoinsFromConsole();
-                    break;
-                case 2:
-                    ReadPointsFromFile("coordinate.txt");
-                    break;
-                case 3:
-                    Console.Clear();
-                    break;
-                case 4:
-                    exit = true;
-                    break;
-                default:
-                    Console.WriteLine("Enter true number...");
-                    break;
+                Console.WriteLine("1 Reading the coordinates from the console");
+                Console.WriteLine("2 Reading the coordinates from the file");
+                var input = int.Parse(Console.ReadLine());
+                switch (input)
+                {
+                    case 1:
+                        ReadPoinsFromConsole();
+                        break;
+                    case 2:
+                        ReadPointsFromFile("coordinate.txt");
+                        break;
+                    default:
+                        Console.WriteLine("Enter true number...");
+                        break;
+                }
             }
+            catch (FormatException)
+            {
+                Console.WriteLine("Enter number!!!");
+            }
+            Console.ReadKey();
         }
 
         public static void ReadPoinsFromConsole()
