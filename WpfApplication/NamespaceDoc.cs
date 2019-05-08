@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace WpfApplication
 {
     /// <summary>
-    /// The Logic of Interaction for App.xaml
+    /// This name space contains stuff.
     /// </summary>
-    public partial class App : Application
+    public static class NamespaceDoc
     {
     }
 }

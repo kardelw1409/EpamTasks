@@ -38,21 +38,12 @@ namespace CoordinateSystem
 
         public static void ReadPoinsFromConsole()
         {
-            Console.WriteLine("Press only 'Enter' to return in a menu");
             Console.WriteLine("Please, enter points");
             try
             {
-                while (true)
-                {
-                    var creator = new PointCreator();
-                    var consoleInput = Console.ReadLine();
-                    if (consoleInput.Length == 0)
-                    {
-                        break;
-                    }
-                    var point = creator.CreatePoint(consoleInput);
-                    Console.WriteLine($"X: {point.X} Y: {point.Y}");
-                }
+                var creator = new PointsCreator();
+                var point = creator.CreatePoint(Console.ReadLine());
+                Console.WriteLine($"X: {point.X} Y: {point.Y}");
             }
             catch (FormatException)
             {
@@ -68,8 +59,8 @@ namespace CoordinateSystem
         {
             try
             {
-                var inputFromFile = new PointsFromFile();
-                var creator = new PointCreator();
+                var inputFromFile = new PointsFromFileReader();
+                var creator = new PointsCreator();
                 var points = inputFromFile.GetPointsList(pathFile);
                 foreach (var point in points)
                 {

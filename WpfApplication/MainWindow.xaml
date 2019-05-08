@@ -26,9 +26,7 @@
                 <Run Foreground="Blue" FontSize="14">Input Field</Run>
             </TextBlock>-->
             <ScrollViewer Height="143" VerticalScrollBarVisibility="Auto">
-                <TextBox Name="TextInput" AcceptsReturn="True" TextWrapping="Wrap">
-                Please enter coordinates here...
-                </TextBox>
+                <TextBox Text="Please enter coordinates here..." Name="TextInput" AcceptsReturn="True" TextWrapping="Wrap" GotKeyboardFocus="TextBox_GotKeyboardFocus"/>
             </ScrollViewer>
             <Button Name="Button" Content="Get Result" HorizontalAlignment="Center" Background="GreenYellow" Foreground="Black" Height="30" Width="100"/>
         </StackPanel>

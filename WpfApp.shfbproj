@@ -14,12 +14,13 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.6</FrameworkVersion>
-    <OutputPath>Help\</OutputPath>
+    <OutputPath>Documentation\SecondTask\</OutputPath>
     <HtmlHelpName>Documentation</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
       <DocumentationSource sourceFile="WpfApplication\bin\Debug\WpfApplication.exe" />
-<DocumentationSource sourceFile="WpfApplication\bin\Debug\WpfApplication.xml" /></DocumentationSources>
+      <DocumentationSource sourceFile="WpfApplication\bin\Debug\WpfApplication.xml" />
+    </DocumentationSources>
     <HelpFileFormat>Website</HelpFileFormat>
     <SyntaxFilters>Standard</SyntaxFilters>
     <PresentationStyle>VS2013</PresentationStyle>
@@ -40,6 +41,12 @@
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
     <VisibleItems>InheritedMembers, InheritedFrameworkMembers, Privates, PrivateFields, Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <NamespaceSummaries>
+    </NamespaceSummaries>
+    <BuildLogFile>
+    </BuildLogFile>
+    <ProjectSummary>
+    </ProjectSummary>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
