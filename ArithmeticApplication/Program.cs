@@ -23,7 +23,7 @@ namespace ArithmeticApplication
                 Console.WriteLine("Result from Math.Pow() : " + Math.Pow(number, 1.0 / degree));
                 Console.WriteLine("Second Task");
                 Console.WriteLine("Enter integer non-negative number...");
-                Console.WriteLine("Binary result : " + BinaryConverter.ToStringv2(int.Parse(Console.ReadLine())));
+                Console.WriteLine("Binary result : " + BinaryConverter.ToString(int.Parse(Console.ReadLine())));
             }
             catch (Exception e)
             {

@@ -38,16 +38,13 @@ namespace ArithmeticApplication
             }
             double result;
             double guess = 1 + (number - 1) / degree;
-            while (true)
+            do
             {
                 guess = guess - ((MathFunctions.Pow(guess, degree) - number) / 
                     (degree * MathFunctions.Pow(guess, degree - 1)));
-                if (MathFunctions.Abs(number - MathFunctions.Pow(guess, degree)) <= accuracy)
-                {
-                    result = guess;
-                    break;
-                }
             }
+            while (MathFunctions.Abs(number - MathFunctions.Pow(guess, degree)) > accuracy);
+            result = guess;
             if (negativeDegree < 0)
             {
                 return 1 / result;
