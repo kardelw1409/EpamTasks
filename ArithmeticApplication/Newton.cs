@@ -36,13 +36,12 @@ namespace ArithmeticApplication
                 negativeDegree = degree;
                 degree = (int)MathFunctions.Abs(degree);
             }
-            double guess = 1 + (number - 1) / degree;
+            double result = 1 + (number - 1) / degree;
             do
             {
-                guess = guess - ((MathFunctions.Pow(guess, degree) - number) / 
-                    (degree * MathFunctions.Pow(guess, degree - 1)));
-            } while (MathFunctions.Abs(number - MathFunctions.Pow(guess, degree)) > accuracy);
-            var result = guess;
+                result = result - ((MathFunctions.Pow(result, degree) - number) / 
+                    (degree * MathFunctions.Pow(result, degree - 1)));
+            } while (MathFunctions.Abs(number - MathFunctions.Pow(result, degree)) > accuracy);
             if (negativeDegree < 0)
             {
                 return 1 / result;

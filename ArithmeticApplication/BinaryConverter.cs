@@ -25,7 +25,7 @@ namespace ArithmeticApplication
             return result;
         }
 
-        /*public static string ToStringv2(long number)
+        /*public static string ToStringv2(int number)
         {
             if (number < 0)
             {
