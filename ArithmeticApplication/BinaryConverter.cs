@@ -25,14 +25,5 @@ namespace ArithmeticApplication
             return result;
         }
 
-        /*public static string ToStringv2(int number)
-        {
-            if (number < 0)
-            {
-                throw new ArithmeticException("The number should be non-negative");
-            }
-            return Convert.ToString(number, 2);
-        }*/
-
     }
 }

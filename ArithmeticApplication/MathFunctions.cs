@@ -21,21 +21,11 @@ namespace ArithmeticApplication
             {
                 return result;
             }
-            else
+            for (var count = 1; count <= degree; count++)
             {
-                for (var count = 1; count <= degree; count++)
-                {
-                    result = checked(result * number);
-                }
-                if (degree > 0)
-                {
-                    return result;
-                }
-                else
-                {
-                    return 1.0 / result;
-                }
+                result = checked(result * number);
             }
+            return degree > 0 ? result : 1.0 / result;
         }
         /// <summary>
         /// The method finds the number modulus.
