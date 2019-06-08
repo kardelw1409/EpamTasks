@@ -8,7 +8,7 @@ namespace ArithmeticApplication
 {
     public static class BinaryConverter
     {
-        public static string ToString(int number)
+        public static string GetBinary(int number)
         {
             string result = "";
             if (number < 0)

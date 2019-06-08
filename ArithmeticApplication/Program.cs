@@ -11,7 +11,7 @@ namespace ArithmeticApplication
         static void Main(string[] args)
         {
             try
-            {
+            { 
                 CalculateRootOfNumber();
                 FindBinaryNumber();
             }
@@ -40,7 +40,7 @@ namespace ArithmeticApplication
             Console.WriteLine("---------Search binary number------------");
             Console.WriteLine("Enter integer non-negative number...");
             var number = int.Parse(Console.ReadLine());
-            Console.WriteLine("Binary result : " + BinaryConverter.ToString(number));
+            Console.WriteLine("Binary result : " + BinaryConverter.GetBinary(number));
         }
     }
 }

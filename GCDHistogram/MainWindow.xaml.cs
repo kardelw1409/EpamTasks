@@ -39,11 +39,11 @@ namespace GCDHistogram
                     var firstNumber = uint.Parse(firstBox.Text);
                     var secondNumber = uint.Parse(secondBox.Text);
                     double timeBinaryGCD;
-                    double timeGCD;
-                    var resultGCD = EuclideanAlgorithms.CalculateGCDOfBinary(out timeBinaryGCD, firstNumber, secondNumber);
-                    EuclideanAlgorithms.CalculateGCD(out timeGCD, firstNumber, secondNumber);
+                    double timeEuclideanGCD;
+                    var resultGCD = BinaryGCDAlgorithm.GetGreatestCommonDivisor(out timeBinaryGCD, firstNumber, secondNumber);
+                    EuclideanAlgorithm.GetGreatestCommonDivisor(out timeEuclideanGCD, firstNumber, secondNumber);
                     resultBox.Text = resultGCD.ToString();
-                    LoadChartData(timeBinaryGCD, timeGCD);
+                    LoadChartData(timeBinaryGCD, timeEuclideanGCD);
                 }
             }
             catch (Exception ex)
@@ -55,18 +55,19 @@ namespace GCDHistogram
         /// Load chart in window.
         /// </summary>
         /// <param name="timeBinaryGCD">Time execution binary Euclidean algorithm.</param>
-        /// <param name="timeGCD">Time execution Euclidean algorithm.</param>
+        /// <param name="timeEuclideanGCD">Time execution Euclidean algorithm.</param>
         /// <param name="isVertical">
         /// Histogram orientation. True - vertical orientation,
         /// false - horizontal orientation. True is default.
         /// </param>
-        private void LoadChartData(double timeBinaryGCD, double timeGCD, bool isVertical = true)
+        private void LoadChartData(double timeBinaryGCD, double timeEuclideanGCD, bool isVertical = true)
         {
             var keyValuePair = new KeyValuePair<string, double>[]{
-                    new KeyValuePair<string,double>("CalculateBinaryGCD", timeBinaryGCD),
-                    new KeyValuePair<string,double>("CalculateGCD", timeGCD)};
+                    new KeyValuePair<string,double>("Binary GCD Algorithm", timeBinaryGCD),
+                    new KeyValuePair<string,double>("Euclidean Algorithm", timeEuclideanGCD)};
             if (isVertical)
             {
+                
                 barChart.Visibility = Visibility.Hidden;
                 columnChart.Visibility = Visibility.Visible;
                 ((ColumnSeries)columnChart.Series[0]).ItemsSource = keyValuePair;
