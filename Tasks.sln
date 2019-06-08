@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCDHistogram", "GCDHistogra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCDHistogramTests", "GCDHistogramTests\GCDHistogramTests.csproj", "{0160B1FB-5943-45A6-811B-98894CC53328}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryProject", "GeometryProject\GeometryProject.csproj", "{A61EEBA0-22CB-43EE-A3FE-1A1C0476CD93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryProjectTests", "GeometryProjectTests\GeometryProjectTests.csproj", "{1BBE6AAE-6635-4053-9742-EFEC2BE0EF75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{0160B1FB-5943-45A6-811B-98894CC53328}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0160B1FB-5943-45A6-811B-98894CC53328}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0160B1FB-5943-45A6-811B-98894CC53328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A61EEBA0-22CB-43EE-A3FE-1A1C0476CD93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A61EEBA0-22CB-43EE-A3FE-1A1C0476CD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A61EEBA0-22CB-43EE-A3FE-1A1C0476CD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A61EEBA0-22CB-43EE-A3FE-1A1C0476CD93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BBE6AAE-6635-4053-9742-EFEC2BE0EF75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BBE6AAE-6635-4053-9742-EFEC2BE0EF75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BBE6AAE-6635-4053-9742-EFEC2BE0EF75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BBE6AAE-6635-4053-9742-EFEC2BE0EF75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
