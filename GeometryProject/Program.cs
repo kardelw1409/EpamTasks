@@ -19,6 +19,7 @@ namespace GeometryProject
                 var triangle = new Triangle(firstSide, secondSide, thirdSide);
                 Console.WriteLine("Area : " + triangle.GetArea());
                 Console.WriteLine("Perimeter : " + triangle.GetPerimeter());
+                //Console.WriteLine(Vector.GetAngleBetweenVectors(new Vector(2,2,0), new Vector(3,-1,0)));
             }
             catch (Exception ex)
             {
