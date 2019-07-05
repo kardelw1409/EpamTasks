@@ -21,11 +21,9 @@ namespace GeometryProject
                 Console.WriteLine("Perimeter : " + triangle.GetPerimeter());
                 var a = new double[] { -6.0, -6.0, -10.0, 10.2 };
                 var p = new Polynomial(a);
-                var b = new double[] { 6.0, 6.0, 10.0, -10.2 };
-                var p2 = new Polynomial(b);
+                var p2 = new Monomial(3, -5.5);
                 var r = p + p2;
                 Console.WriteLine(r.ToString());
-                Console.WriteLine(p.ToString());
                 //Console.WriteLine(Vector.GetAngleBetweenVectors(new Vector(2,2,0), new Vector(3,-1,0)));
             }
             catch (Exception ex)
