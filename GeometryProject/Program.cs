@@ -12,19 +12,32 @@ namespace GeometryProject
         {
             try
             {
-                Console.WriteLine("Enter three side of triangle");
+                /*Console.WriteLine("Enter three side of triangle");
                 var firstSide = double.Parse(Console.ReadLine());
                 var secondSide = double.Parse(Console.ReadLine());
                 var thirdSide = double.Parse(Console.ReadLine());
                 var triangle = new Triangle(firstSide, secondSide, thirdSide);
                 Console.WriteLine("Area : " + triangle.GetArea());
-                Console.WriteLine("Perimeter : " + triangle.GetPerimeter());
-                var a = new double[] { -6.0, -6.0, -10.0, 10.2 };
-                var p = new Polynomial(a);
-                var p2 = new Monomial(3, -5.5);
-                var r = p + p2;
-                Console.WriteLine(r.ToString());
-                //Console.WriteLine(Vector.GetAngleBetweenVectors(new Vector(2,2,0), new Vector(3,-1,0)));
+                Console.WriteLine("Perimeter : " + triangle.GetPerimeter());*/
+                Console.WriteLine("Polynomial operation");
+                var firstArrayCoefficients = new double[] { -3, -22, 23, -10, 2 };
+                var secondArrayCoefficients = new double[] { 5, -3, 1 };
+                var firstPolynomial = new Polynomial(firstArrayCoefficients);
+                Console.WriteLine("First Polynomial " + firstPolynomial.ToString());
+                var secondPolynomial = new Polynomial(secondArrayCoefficients);
+                Console.WriteLine("Second Polynomial " + secondPolynomial.ToString());
+                Polynomial remainder;
+                var quotient = Polynomial.Division(firstPolynomial, secondPolynomial, out remainder);
+                Console.WriteLine("Quotient : ");
+                Console.WriteLine(quotient.ToString());
+                Console.WriteLine("Remainder : ");
+                Console.WriteLine(remainder.ToString());
+                Console.WriteLine("===========================");
+                Console.WriteLine("Vector operation");
+                var firstVector = new Vector(2, 2, 0);
+                var secondVector = new Vector(3, -1, 0);
+                Console.WriteLine("Angle between vectors " + firstVector.ToString() + " and " + secondVector.ToString());
+                Console.WriteLine(Vector.GetAngleBetweenVectors(firstVector, secondVector));
             }
             catch (Exception ex)
             {

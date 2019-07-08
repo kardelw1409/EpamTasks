@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeometryProject
 {
-    public class Monomial //: IComparable
+    public class Monomial : IComparable<Monomial>
     {
         public int Degree { get; private set; }
         public double Coefficient { get; private set; }
@@ -22,25 +22,20 @@ namespace GeometryProject
             Coefficient = coefficient;
         }
 
+        public static Monomial operator / (Monomial monomialFirst, Monomial monomialSecond)
+        {
+            return new Monomial(monomialFirst.Degree - monomialSecond.Degree, monomialFirst.Coefficient / monomialSecond.Coefficient);
+        }
+
+        public int CompareTo(Monomial monomial)
+        {
+            return Degree.CompareTo(monomial.Degree);
+        }
+
         public override string ToString()
         {
             return Coefficient == 0 ? "" : Coefficient.ToString("+#.##;-#.##") + "*" + "x" + "^" + Degree;
         }
 
-        /*private int IComparer.Compare(object monomialFirst, object monomialSecond)
-        {
-            if (((Monomial)monomialFirst).Degree > ((Monomial)monomialSecond).Degree)
-            {
-                return 1;
-            }
-            if (((Monomial)monomialFirst).Degree == ((Monomial)monomialSecond).Degree)
-            {
-                return 0;
-            }
-            if (((Monomial)monomialFirst).Degree  ((Monomial)monomialSecond).Degree)
-            {
-                return -1;
-            }
-        }*/
     }
 }

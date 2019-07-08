@@ -40,10 +40,9 @@ namespace GeometryProject
                 vector.coordinateZ * number);
         }
 
-        public double GetModule()
+        public static Vector operator * (double number, Vector vector)
         {
-            return Math.Sqrt(coordinateX * coordinateX + coordinateY * coordinateY +
-                coordinateZ * coordinateZ);
+            return vector * number;
         }
 
         public static double operator * (Vector firstVector, Vector secondVector)
@@ -53,10 +52,28 @@ namespace GeometryProject
                 firstVector.coordinateZ * secondVector.coordinateZ;
         }
 
+        public static Vector operator / (Vector vector, double number)
+        {
+            return new Vector(vector.coordinateX / number,
+                vector.coordinateY / number,
+                vector.coordinateZ / number);
+        }
+
+        public double GetModule()
+        {
+            return Math.Sqrt(coordinateX * coordinateX + coordinateY * coordinateY +
+                coordinateZ * coordinateZ);
+        }
+
         public static double GetAngleBetweenVectors(Vector firstVector, Vector secondVector)
         {
             return Math.Acos((firstVector * secondVector) / (firstVector.GetModule() * 
                 secondVector.GetModule()));
+        }
+
+        public override string ToString()
+        {
+            return "(" + coordinateX + ", " + coordinateY + ", "+ coordinateX + ")";
         }
     }
 }
