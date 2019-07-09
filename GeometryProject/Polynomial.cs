@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeometryProject
 {
-    public class Polynomial : IComparer<Monomial>
+    public class Polynomial : IComparer<Monomial>, IEquatable<Polynomial>
     {
         public int NumberOfMonomial { get; private set; }
         public int DegreeOfPolynomial { get; private set; }
@@ -22,11 +22,11 @@ namespace GeometryProject
             MononmialList = new List<Monomial>();
             if (listOfMonomial.Count == 0)
             {
-                throw new ArithmeticException("List is empty");
+                throw new InitializationException("List is empty.");
             }
             if (listOfMonomial.Count == 1)
             {
-                throw new ArithmeticException("Monomial can't be polynomial");
+                throw new InitializationException("Monomial can't be polynomial.");
             }
             DegreeOfPolynomial = listOfMonomial[0].Degree;
             foreach (var buffer in listOfMonomial)
@@ -41,6 +41,10 @@ namespace GeometryProject
                 }
                 MononmialList.Add(buffer);
             }
+            if ((MononmialList.Count == 0) || (MononmialList.Count == 1))
+            {
+                throw new InitializationException("There are few zero. Monomial can't be polynomial.");
+            }
             MononmialList.Sort();
             NumberOfMonomial = MononmialList.Count;
         }
@@ -50,9 +54,13 @@ namespace GeometryProject
         /// <param name="coefficients">Array of coefficients</param>
         public Polynomial(double[] coefficients)
         {
+            if (coefficients.Length == 0)
+            {
+                throw new InitializationException("Array is empty.");
+            }
             if (coefficients.Length == 1)
             {
-                throw new ArithmeticException("Monomial can't be polynomial");
+                throw new InitializationException("Monomial can't be polynomial.");
             }
             MononmialList = new List<Monomial>();
             for (var i = 0; i < coefficients.Length; i++)
@@ -62,6 +70,10 @@ namespace GeometryProject
                     continue;
                 }
                 MononmialList.Add(new Monomial(i, coefficients[i]));
+            }
+            if ((MononmialList.Count == 0) || (MononmialList.Count == 1))
+            {
+                throw new InitializationException("There are few zero. Monomial can't be polynomial.");
             }
             DegreeOfPolynomial = MononmialList[MononmialList.Count - 1].Degree;
             MononmialList.Sort();
@@ -114,7 +126,7 @@ namespace GeometryProject
         {
             if (monomial.Coefficient == 0)
             {
-                throw new ArithmeticException("Monomial can't be polynomial");
+                throw new ArithmeticException("Monomial can't be polynomial.");
             }
             var resultPolynomial = new List<Monomial>();
             foreach (var buffer in polynomial.MononmialList)
@@ -151,11 +163,11 @@ namespace GeometryProject
             return polynomial + monomial;
         }
 
-        public static Polynomial Division(Polynomial polynomialFirst, Polynomial polynomialSecond, out Polynomial remainder)
+        public static Polynomial Divide(Polynomial polynomialFirst, Polynomial polynomialSecond, out Polynomial remainder)
         {
             if (polynomialSecond.DegreeOfPolynomial > polynomialFirst.DegreeOfPolynomial)
             {
-                throw new ArgumentException("The degree of the divisor can't be greater than the degree of the divisible");
+                throw new ArgumentException("The degree of the divisor can't be greater than the degree of the divisible.");
             }
             remainder = polynomialFirst;
             Monomial monomialOfQuotient;
@@ -173,7 +185,7 @@ namespace GeometryProject
             return new Polynomial(listResult);
         }
         /// <summary>
-        /// This method returns only quotient. To find the remainder, use the <see cref="Division"/> method.
+        /// This method returns only quotient. To find the remainder, use the <see cref="Divide"/> method.
         /// </summary>
         /// <param name="polynomialFirst">First polynomial.</param>
         /// <param name="polynomialSecond">Second Polynomial.</param>
@@ -181,7 +193,7 @@ namespace GeometryProject
         public static Polynomial operator / (Polynomial polynomialFirst, Polynomial polynomialSecond)
         {
             Polynomial remainder;
-            return Division(polynomialFirst, polynomialSecond, out remainder);
+            return Divide(polynomialFirst, polynomialSecond, out remainder);
         }
 
         /// <summary>
@@ -205,7 +217,7 @@ namespace GeometryProject
             return arrayCoefficients;
         }
 
-        public Monomial GetSeniorMember()
+        private Monomial GetSeniorMember()
         {
             return MononmialList.Find(i => i.Degree == DegreeOfPolynomial);
         }
@@ -225,5 +237,55 @@ namespace GeometryProject
             return resultPolynomial == "" ? "0" : resultPolynomial;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            return obj.GetType() == GetType() && Equals((Polynomial)obj);
+        }
+
+        public bool Equals(Polynomial polynomial)
+        {
+            if (ReferenceEquals(null, polynomial))
+            {
+                return false;
+            }
+            if (ReferenceEquals(this, polynomial))
+            {
+                return true;
+            }
+            if (DegreeOfPolynomial != polynomial.DegreeOfPolynomial)
+            {
+                return false;
+            }
+            if (MononmialList.Count != polynomial.MononmialList.Count)
+            {
+                return false;
+            }
+            for (var i = 0; i < MononmialList.Count; i++)
+            {
+                if (MononmialList[i] != polynomial.MononmialList[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1205459986;
+            hashCode = hashCode * -1521134295 + NumberOfMonomial.GetHashCode();
+            hashCode = hashCode * -1521134295 + DegreeOfPolynomial.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<List<Monomial>>.Default.GetHashCode(MononmialList);
+            return hashCode;
+        }
     }
 }

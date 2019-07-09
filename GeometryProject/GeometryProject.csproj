@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InitializationException.cs" />
     <Compile Include="Monomial.cs" />
     <Compile Include="Polynomial.cs" />
     <Compile Include="Program.cs" />

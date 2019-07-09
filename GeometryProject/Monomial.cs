@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeometryProject
 {
-    public class Monomial : IComparable<Monomial>
+    public class Monomial : IComparable<Monomial>, IEquatable<Monomial>
     {
         public int Degree { get; private set; }
         public double Coefficient { get; private set; }
@@ -37,5 +37,52 @@ namespace GeometryProject
             return Coefficient == 0 ? "" : Coefficient.ToString("+#.##;-#.##") + "*" + "x" + "^" + Degree;
         }
 
+        public bool Equals(Monomial monomial)
+        {
+            if (ReferenceEquals(null, monomial))
+            {
+                return false;
+            }
+            if (ReferenceEquals(this, monomial))
+            {
+                return true;
+            }
+            if (Degree != monomial.Degree)
+            {
+                return false;
+            }
+            return Coefficient == monomial.Coefficient && Degree == monomial.Degree;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            return GetType() == obj.GetType() && Equals((Monomial)obj);
+        }
+
+        public static bool operator == (Monomial first, Monomial second)
+        {
+            return first.Equals(second);
+        }
+        public static bool operator != (Monomial first, Monomial second)
+        {
+            return !first.Equals(second);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -1647794589;
+            hashCode = hashCode * -1521134295 + Degree.GetHashCode();
+            hashCode = hashCode * -1521134295 + Coefficient.GetHashCode();
+            return hashCode;
+        }
     }
 }
