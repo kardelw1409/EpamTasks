@@ -1,8 +1,8 @@
 ﻿using System;
-using GeometryProject;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TraingleApplication;
 
-namespace GeometryProjectTests
+namespace TriangleApplicationTests
 {
     [TestClass]
     public class TriangleTests

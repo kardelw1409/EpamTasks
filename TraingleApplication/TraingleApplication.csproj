@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A61EEBA0-22CB-43EE-A3FE-1A1C0476CD93}</ProjectGuid>
+    <ProjectGuid>{BAAA0202-BEA1-4AAF-B4D7-3ACE0164A271}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GeometryProject</RootNamespace>
-    <AssemblyName>GeometryProject</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>TraingleApplication</RootNamespace>
+    <AssemblyName>TraingleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -43,12 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitializationException.cs" />
-    <Compile Include="Monomial.cs" />
-    <Compile Include="Polynomial.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vector.cs" />
+    <Compile Include="Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

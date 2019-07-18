@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GeometryProject
+namespace TraingleApplication
 {
     public class Triangle
     {
