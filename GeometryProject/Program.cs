@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeometryProject
 {
@@ -12,13 +8,13 @@ namespace GeometryProject
         {
             try
             {
-                /*Console.WriteLine("Enter three side of triangle");
+                Console.WriteLine("Enter three side of triangle");
                 var firstSide = double.Parse(Console.ReadLine());
                 var secondSide = double.Parse(Console.ReadLine());
                 var thirdSide = double.Parse(Console.ReadLine());
                 var triangle = new Triangle(firstSide, secondSide, thirdSide);
                 Console.WriteLine("Area : " + triangle.GetArea());
-                Console.WriteLine("Perimeter : " + triangle.GetPerimeter());*/
+                Console.WriteLine("Perimeter : " + triangle.GetPerimeter());
 
                 Console.WriteLine("Polynomial operation");
                 var firstArrayCoefficients = new double[] { -3, -22, 23, -10, 2 };
@@ -67,6 +63,7 @@ namespace GeometryProject
             {
                 Console.WriteLine(ex.Message);
             }
+
         }
     }
 }
